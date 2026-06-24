@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backyard Landing Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #fcfcfc;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/code.jpg") no-repeat center center/cover;
+            color: white;
+            padding: 80px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 40px;
+        }
+
+        .logo-top {
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .hero-left h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 40px;
+        }
+
+        .hero-left p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #ddd;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-blue {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-right {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .hero-right h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .hero-right input[type="text"],
+        .hero-right input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .hero-right input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero-right p {
+            font-size: 11px;
+            text-align: center;
+            margin-top: 15px;
+            color: #bbb;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: white;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .nav-links a.active {
+            color: #3498db;
+        }
+
+        /* --- OPTIMIZE SECTION --- */
+        .optimize-section {
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .optimize-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .optimize-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .optimize-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .optimize-content h2 {
+            font-size: 32px;
+            color: #444;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .optimize-content p {
+            color: #777;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn-learn {
+            border: 2px solid #3498db;
+            color: #3498db;
+            margin-top: 15px;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features-section {
+            padding: 80px 10%;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .features-header h2 {
+            font-size: 32px;
+            font-weight: normal;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .features-header p {
+            color: #888;
+            margin-bottom: 50px;
+        }
+
+        .features-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .features-left-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .features-left-img img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .features-grid {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-box h4 {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 768px) {
+            .hero, .optimize-section, .features-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-left { margin-right: 0; margin-bottom: 40px; }
+            .optimize-content, .feature-box { text-align: center; }
+            .nav-links { display: none; }
+        }
+            features-section {
+          padding: 60px 0;
+          text-align: center;
+          }
+         .feature-box {
+          margin-bottom: 30px;         }
+     .feature-box h3 {
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-left">
+            <div class="logo-top">BACKYARD</div>
+            <h1>Beautiful High Converting Landing Page</h1>
+            <p>Backyard is a modern and customizable landing page template designed to increase conversion of your product. Backyard is flexible to suit any kind of your business. Try now and join with our happy customers!</p>
+            <a href="#" class="btn btn-blue">Features</a>
+            <a href="#" class="btn btn-outline">Download</a>
+        </div>
+        <div class="hero-right">
+            <h3>GET STARTED</h3>
+            <form>
+                <input type="text" placeholder="Your name" required>
+                <input type="email" placeholder="Email address" required>
+                <input type="submit" value="SUBSCRIBE">
+            </form>
+            <p>We will not share your email. Read our privacy policy.</p>
+        </div>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="navbar-brand">BACKYARD</div>
+        <div class="nav-links">
+            <a href="#" class="active">About</a>
+            <a href="#">Features</a>
+            <a href="#">Download</a>
+            <a href="#">Pricing</a>
+            <a href="#">Reviews</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- OPTIMIZE PERFORMANCE SECTION -->
+    <section class="optimize-section">
+        <div class="optimize-image">
+      <img src="image.jpg" alt="Workplace">
+
+        </div>
+        <div class="optimize-content">
+            <h2>Optimize performance through advanced targeting solutions</h2>
+            <p>Good marketing makes the company look smart. Great marketing makes the customer feel smart. - Joe Chernov. Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has. - Margaret Mead.</p>
+            <p>The best way to predict the future is to create it. - Peter Drucker.</p>
+            <a href="#" class="btn btn-learn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- FEATURES AND IDEAS SECTION -->
+    <section class="features-section">
+        <div class="features-header">
+            <h2>Recreate your ideas and gain more success</h2>
+            <p>Increase your user loyalty by maintaining mutual communication and nurturing your online community.</p>
+        </div>
+        <div class="features-container">
+            <div class="features-left-img">
+                <img src=
+                "/aman.jpg" alt="a man">
+        <!-- Features Section Start -->
+<section id="features" class="features-section">
+    <div class="container"></div>
+    <!-- Main Heading -->
+        <div class="section-title text-center">
+            <h2>Recreate your ideas and gain more success</h2>
+            <p>Increase your user loyalty by maintaining mutual communication and nurturing your online community.</p>
+        </div>
+
+        <div class="row">
+            <!-- Feature 1: Marketing Strategy -->
+            <div class="feature-box text-center">
+                <div class="icon"><i class="fa fa-bullseye"></i></div>
+                <h3>Marketing Strategy</h3>
+                <p>Good marketing makes the company look smart. Great marketing makes the customer feel smart.</p>
+            </div>
+
+            <!-- Feature 2: App Monetization -->
+            <div class="feature-box text-center">
+                <div class="icon"><i class="fa fa-money"></i></div>
+                <h3>App Monetization</h3>
+                <p>Content builds relationships. Relationships are built on trust. Trust drives revenue.</p>
+            </div>
+
+            <!-- Feature 3: Store Optimization -->
+            <div class="feature-box text-center">
+                <div class="icon"><i class="fa fa-line-chart"></i></div>
+                <h3>Store Optimization</h3>
+                <p>Never doubt a small group of thoughtful, committed people can change the world.</p>
+            </div>
+
+            <!-- Feature 4: User Management -->
+            <div class="feature-box text-center">
+                <div class="icon"><i class="fa fa-users"></i></div>
+                <h3>User Management</h3>
+                <p>Instead of using technology to automate processes, think about using technology to enhance human interaction.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</section>
+
+</html>
